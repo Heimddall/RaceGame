@@ -9,6 +9,8 @@ import UIKit
 
 class WinnersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var gamerName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

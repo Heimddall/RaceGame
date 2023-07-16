@@ -9,6 +9,11 @@ import UIKit
 
 class NotWinnersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var positionStats: UILabel!
+    @IBOutlet weak var gamerName: UILabel!
+    @IBOutlet weak var score: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,6 +9,31 @@ import UIKit
 
 class StatisticsTableViewController: UITableViewController {
     
+    var stats = [
+        StatsModel(name: "First player", score: 100),
+        StatsModel(name: "Second player", score: 300),
+        StatsModel(name: "Third player", score: 6000),
+        StatsModel(name: "Fourth player", score: 700),
+        StatsModel(name: "Fifth player", score: 10000),
+        StatsModel(name: "Sixth player", score: 11234),
+        StatsModel(name: "New player", score: 600),
+        StatsModel(name: "New player", score: 700),
+        StatsModel(name: "New player", score: 1023),
+        StatsModel(name: "New player", score: 600),
+        StatsModel(name: "New player", score: 700),
+        StatsModel(name: "New player", score: 1002),
+        StatsModel(name: "New player", score: 600),
+        StatsModel(name: "New player", score: 700),
+        StatsModel(name: "New player", score: 1000),
+        StatsModel(name: "New player", score: 600),
+        StatsModel(name: "New player", score: 700),
+        StatsModel(name: "New player", score: 1023),
+        StatsModel(name: "New player", score: 600),
+        StatsModel(name: "New player", score: 700),
+        StatsModel(name: "New player", score: 10)
+    ].sorted { $0.score > $1.score }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +51,7 @@ class StatisticsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return stats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,6 +59,14 @@ class StatisticsTableViewController: UITableViewController {
         guard let winnersCell = tableView.dequeueReusableCell(withIdentifier: "winners", for: indexPath) as? WinnersTableViewCell else {return UITableViewCell()}
         
         guard let notWinnersCell = tableView.dequeueReusableCell(withIdentifier: "notWinners", for: indexPath) as? NotWinnersTableViewCell else {return UITableViewCell()}
+        
+        winnersCell.gamerName.text = stats[indexPath.row].name
+        notWinnersCell.gamerName.text = stats[indexPath.row].name
+        
+        winnersCell.score.text = String(stats[indexPath.row].score)
+        notWinnersCell.score.text = String(stats[indexPath.row].score)
+        
+        notWinnersCell.positionStats.text = String(indexPath.row + 1)
         
         switch indexPath.row {
         case 0:

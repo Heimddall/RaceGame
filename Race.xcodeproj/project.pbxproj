@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1774B52A629E4C0032EDBB /* StatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1774B42A629E4C0032EDBB /* StatsModel.swift */; };
+		DA1774B72A62B7600032EDBB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1774B62A62B7600032EDBB /* MainViewController.swift */; };
+		DA1774BC2A64275A0032EDBB /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1774BA2A64275A0032EDBB /* RaceViewController.swift */; };
+		DA1774BD2A64275A0032EDBB /* RaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1774BB2A64275A0032EDBB /* RaceViewController.xib */; };
 		DA1D20BB2A5A0FC200B579A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */; };
 		DA1D20BD2A5A0FC200B579A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */; };
 		DA1D20BF2A5A0FC200B579A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BE2A5A0FC200B579A1 /* SettingsViewController.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA1774B42A629E4C0032EDBB /* StatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsModel.swift; sourceTree = "<group>"; };
+		DA1774B62A62B7600032EDBB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA1774BA2A64275A0032EDBB /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
+		DA1774BB2A64275A0032EDBB /* RaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceViewController.xib; sourceTree = "<group>"; };
 		DA1D20B72A5A0FC200B579A1 /* Race.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Race.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,10 +88,14 @@
 			children = (
 				DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */,
 				DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */,
+				DA1774B62A62B7600032EDBB /* MainViewController.swift */,
 				DA1D20BE2A5A0FC200B579A1 /* SettingsViewController.swift */,
-				DA1D20E32A5B666E00B579A1 /* StatisticsTableViewController.swift */,
 				DA1D20DF2A5ACF3000B579A1 /* SettingModel.swift */,
 				DA1D20E12A5B490B00B579A1 /* SettingsManager.swift */,
+				DA1D20E32A5B666E00B579A1 /* StatisticsTableViewController.swift */,
+				DA1774B42A629E4C0032EDBB /* StatsModel.swift */,
+				DA1774BA2A64275A0032EDBB /* RaceViewController.swift */,
+				DA1774BB2A64275A0032EDBB /* RaceViewController.xib */,
 				DA1D20D22A5AC13600B579A1 /* Cells */,
 				DA1D20C02A5A0FC200B579A1 /* Main.storyboard */,
 				DA1D20C32A5A0FC400B579A1 /* Assets.xcassets */,
@@ -167,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1D20DE2A5ACD8800B579A1 /* SwitchTableViewCell.xib in Resources */,
+				DA1774BD2A64275A0032EDBB /* RaceViewController.xib in Resources */,
 				DA1D20C72A5A0FC400B579A1 /* LaunchScreen.storyboard in Resources */,
 				DA1D20E82A5B77E700B579A1 /* WinnersTableViewCell.xib in Resources */,
 				DA1D20C42A5A0FC400B579A1 /* Assets.xcassets in Resources */,
@@ -186,6 +199,7 @@
 				DA1D20E42A5B666E00B579A1 /* StatisticsTableViewController.swift in Sources */,
 				DA1D20BF2A5A0FC200B579A1 /* SettingsViewController.swift in Sources */,
 				DA1D20BB2A5A0FC200B579A1 /* AppDelegate.swift in Sources */,
+				DA1774B72A62B7600032EDBB /* MainViewController.swift in Sources */,
 				DA1D20E02A5ACF3000B579A1 /* SettingModel.swift in Sources */,
 				DA1D20EB2A5B784A00B579A1 /* NotWinnersTableViewCell.swift in Sources */,
 				DA1D20E22A5B490B00B579A1 /* SettingsManager.swift in Sources */,
@@ -193,6 +207,8 @@
 				DA1D20D92A5ACD7800B579A1 /* OpenSettingTableViewCell.swift in Sources */,
 				DA1D20DD2A5ACD8800B579A1 /* SwitchTableViewCell.swift in Sources */,
 				DA1D20BD2A5A0FC200B579A1 /* SceneDelegate.swift in Sources */,
+				DA1774BC2A64275A0032EDBB /* RaceViewController.swift in Sources */,
+				DA1774B52A629E4C0032EDBB /* StatsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

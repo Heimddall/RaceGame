@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "car95.svg",
       "idiom" : "universal"
     }
   ],

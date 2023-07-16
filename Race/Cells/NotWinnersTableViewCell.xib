@@ -28,8 +28,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9F9-Bl-S6f">
-                        <rect key="frame" x="259" y="8" width="45" height="28"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9F9-Bl-S6f">
+                        <rect key="frame" x="296.33333333333331" y="8" width="7.6666666666666856" height="28"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,6 +52,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="gamerName" destination="0X1-1A-xnq" id="JsP-Jv-DoV"/>
+                <outlet property="positionStats" destination="HPY-32-x35" id="T5C-8k-cfu"/>
+                <outlet property="score" destination="9F9-Bl-S6f" id="S93-6i-8pz"/>
+            </connections>
             <point key="canvasLocation" x="200" y="32"/>
         </tableViewCell>
     </objects>
