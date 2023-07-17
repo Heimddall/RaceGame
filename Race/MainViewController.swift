@@ -40,13 +40,6 @@ class MainViewController: UIViewController {
         container.layer.shadowOpacity = 0.5
         container.layer.shadowRadius = 20
         container.clipsToBounds = false
-        
-//        startButton.layer.shadowColor = UIColor.black.cgColor
-//        startButton.layer.shadowOffset = CGSize(width: 0, height: 20)
-//        startButton.layer.shadowOpacity = 0.5
-//        startButton.layer.shadowRadius = 20
-//
-//        view.addSubview(startButton)
     }
     
     @IBAction func startGame(_ sender: Any) {

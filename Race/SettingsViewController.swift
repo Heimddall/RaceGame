@@ -17,6 +17,24 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
+        setupBackgroundSetting()
+    }
+    
+    private func setupBackgroundSetting() {
+        let vcGradientLayer = CAGradientLayer()
+        vcGradientLayer.frame = view.bounds
+        vcGradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.clear.cgColor]
+        vcGradientLayer.locations = [0.0, 1.0]
+        
+        view.layer.insertSublayer(vcGradientLayer, at: 0)
+        
+        let tableGradientLayer = CAGradientLayer()
+        tableGradientLayer.frame = tableView.bounds
+        tableGradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.clear.cgColor]
+        tableGradientLayer.locations = [0.0, 1.0]
+        
+        tableView.backgroundView = UIView(frame: tableView.bounds)
+        tableView.backgroundView?.layer.insertSublayer(tableGradientLayer, at: 0)
     }
 
     private func setupTable() {
@@ -49,9 +67,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int { 1 }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        settings.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { settings.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row

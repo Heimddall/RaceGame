@@ -67,16 +67,17 @@ class StatisticsTableViewController: UITableViewController {
         notWinnersCell.score.text = String(stats[indexPath.row].score)
         
         notWinnersCell.positionStats.text = String(indexPath.row + 1)
+        winnersCell.medal.contentMode = .scaleAspectFit
         
         switch indexPath.row {
         case 0:
-            winnersCell.imageView?.image = UIImage(named: "1st_place.png")
+            winnersCell.medal.image = UIImage(named: "1st_place.png")
             return winnersCell
         case 1:
-            winnersCell.imageView?.image = UIImage(named: "2nd_place.png")
+            winnersCell.medal.image = UIImage(named: "2nd_place.png")
             return winnersCell
         case 2:
-            winnersCell.imageView?.image = UIImage(named: "3rd_place.png")
+            winnersCell.medal.image = UIImage(named: "3rd_place.png")
             return winnersCell
         default:
             return notWinnersCell
