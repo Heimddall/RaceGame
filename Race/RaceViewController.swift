@@ -36,9 +36,27 @@ class RaceViewController: UIViewController {
     var elementSize: CGFloat = 0
     var defaultPadding: CGFloat = 20
     
+    var ySidesOrigin: CGFloat = 0
+    var sideWidth: CGFloat = 0
+    var sideHeight: CGFloat = 0
+    var xRightSideOrigin: CGFloat = 0
+    
+    
     //MARK: - LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lSwipe = UISwipeGestureRecognizer()
+        lSwipe.direction = .left
+        lSwipe.addTarget(self, action: #selector(swipe))
+        
+        let rSwipe = UISwipeGestureRecognizer()
+        rSwipe.direction = .right
+        rSwipe.addTarget(self, action: #selector(swipe))
+        
+        view.addGestureRecognizer(lSwipe)
+        view.addGestureRecognizer(rSwipe)
+        
         setupBackground()
     }
     
@@ -71,6 +89,10 @@ class RaceViewController: UIViewController {
         centerOriginCoordinate = elementSize + 7/2 * leftOriginCoordinate
         rightOriginCoordinate = 2 * elementSize + 7 * leftOriginCoordinate
         
+        ySidesOrigin = topSafeAreaPadding + navigationBarHeight
+        sideWidth = screenWidth/2
+        sideHeight = screenHeight - topSafeAreaPadding - navigationBarHeight - bottomSafeAreaPadding
+        xRightSideOrigin = screenWidth/2
     }
     
     func setupFrames() {
@@ -140,18 +162,34 @@ class RaceViewController: UIViewController {
     
     
     //MARK: - Moves
+    @objc
+    func swipe(sender: UISwipeGestureRecognizer) {
+        
+        switch sender.direction {
+        case .left where carImage.frame.origin.x == centerOriginCoordinate :
+                moveCarTo(.left)
+        case .left where carImage.frame.origin.x == rightOriginCoordinate:
+                moveCarTo(.center)
+        case .right where carImage.frame.origin.x == centerOriginCoordinate:
+                moveCarTo(.right)
+//        case .right where carImage.frame.origin.x == leftOriginCoordinate:
+//                moveCarTo(.center)
+        case .right where abs(carImage.frame.origin.x - leftOriginCoordinate) < 0.01:
+            moveCarTo(.center)
+        default:
+            break
+        }
+    }
+    
     @IBAction func changeCarPosition(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            moveCarTo(.left)
             movePyramidTo(.center)
             moveBarrierTo(.right)
         case 2:
-            moveCarTo(.right)
             movePyramidTo(.left)
             moveBarrierTo(.center)
         default:
-            moveCarTo(.center)
             movePyramidTo(.right)
             moveBarrierTo(.left)
         }
