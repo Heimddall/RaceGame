@@ -16,12 +16,12 @@ class RaceViewController: UIViewController {
     }
     
     //MARK: - UI-Elements
-    @IBOutlet weak var carPositionSegmentControl: UISegmentedControl!
     
     var carImage = UIImageView(image: UIImage(named: "car"))
     var pyramidImage = UIImageView(image: UIImage(named: "warning_pyramid"))
     var barrierImage = UIImageView(image: UIImage(named: "traffic_barrier"))
     
+
     //MARK: - UI-Coordinates
     var screenWidth: CGFloat = 0
     var screenHeight: CGFloat = 0
@@ -33,13 +33,17 @@ class RaceViewController: UIViewController {
     var centerOriginCoordinate: CGFloat = 0
     var rightOriginCoordinate: CGFloat = 0
     
+    var carPosition = ElementPosition.center
+    
+    let obstaclesSpeed: Double = 200
+    
     var elementSize: CGFloat = 0
     var defaultPadding: CGFloat = 20
     
-    var ySidesOrigin: CGFloat = 0
-    var sideWidth: CGFloat = 0
-    var sideHeight: CGFloat = 0
-    var xRightSideOrigin: CGFloat = 0
+    let pyramidTopSpacing: CGFloat = 200
+    let barrierTopSpacing: CGFloat = 50
+    let pyramidBottomSpacing: CGFloat = 700
+    let barrierBottomSpacing: CGFloat = 200
     
     
     //MARK: - LyfeCycle
@@ -63,6 +67,10 @@ class RaceViewController: UIViewController {
     override func viewWillAppear (_ animated: Bool) {
         setupCoordinates()
         setupFrames()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animateObstacles()
     }
     
     //MARK: - Setup Views
@@ -89,18 +97,12 @@ class RaceViewController: UIViewController {
         centerOriginCoordinate = elementSize + 7/2 * leftOriginCoordinate
         rightOriginCoordinate = 2 * elementSize + 7 * leftOriginCoordinate
         
-        ySidesOrigin = topSafeAreaPadding + navigationBarHeight
-        sideWidth = screenWidth/2
-        sideHeight = screenHeight - topSafeAreaPadding - navigationBarHeight - bottomSafeAreaPadding
-        xRightSideOrigin = screenWidth/2
     }
     
     func setupFrames() {
         carImage.contentMode = .scaleAspectFit
         pyramidImage.contentMode = .scaleAspectFit
         barrierImage.contentMode = .scaleAspectFit
-        
-        carPositionSegmentControl.selectedSegmentIndex = 1
         
         setupCar()
         setupPyramid()
@@ -131,7 +133,7 @@ class RaceViewController: UIViewController {
     }
     
     func setupPyramid() {
-        let yCoordinateOfPyramid = (screenHeight - elementSize) / 2
+        let yCoordinateOfPyramid = -elementSize - pyramidTopSpacing
         pyramidImage.frame = CGRect(x: rightOriginCoordinate,
                                     y: yCoordinateOfPyramid,
                                     width: elementSize,
@@ -146,7 +148,7 @@ class RaceViewController: UIViewController {
     }
     
     func setupBarrier() {
-        let yCoordinateOfBarrier = topSafeAreaPadding + navigationBarHeight + defaultPadding
+        let yCoordinateOfBarrier = -elementSize - barrierTopSpacing
         barrierImage.frame = CGRect(x: leftOriginCoordinate,
                                     y: yCoordinateOfBarrier,
                                     width: elementSize,
@@ -165,45 +167,49 @@ class RaceViewController: UIViewController {
     @objc
     func swipe(sender: UISwipeGestureRecognizer) {
         
-        switch sender.direction {
-        case .left where carImage.frame.origin.x == centerOriginCoordinate :
-                moveCarTo(.left)
-        case .left where carImage.frame.origin.x == rightOriginCoordinate:
-                moveCarTo(.center)
-        case .right where carImage.frame.origin.x == centerOriginCoordinate:
-                moveCarTo(.right)
-//        case .right where carImage.frame.origin.x == leftOriginCoordinate:
-//                moveCarTo(.center)
-        case .right where abs(carImage.frame.origin.x - leftOriginCoordinate) < 0.01:
-            moveCarTo(.center)
-        default:
-            break
+        let destinationPosition: ElementPosition
+        if sender.direction == .left {
+            switch carPosition {
+            case .left, .center:
+                destinationPosition = .left
+            case .right:
+                destinationPosition = .center
+            }
+        } else {
+            switch carPosition {
+            case .right, .center:
+                destinationPosition = .right
+            case .left:
+                destinationPosition = .center
+            }
         }
+        
+        moveCarTo(destinationPosition)
     }
     
-    @IBAction func changeCarPosition(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            movePyramidTo(.center)
-            moveBarrierTo(.right)
-        case 2:
-            movePyramidTo(.left)
-            moveBarrierTo(.center)
-        default:
-            movePyramidTo(.right)
-            moveBarrierTo(.left)
-        }
-    }
     
     func moveCarTo(_ position: ElementPosition){
+        
+        let destinationCoordinate: CGFloat
+        
         switch position {
         case .left:
-            carImage.frame.origin.x = leftOriginCoordinate
+            destinationCoordinate = leftOriginCoordinate
         case .center:
-            carImage.frame.origin.x = centerOriginCoordinate
+            destinationCoordinate = centerOriginCoordinate
         case .right:
-            carImage.frame.origin.x = rightOriginCoordinate
+            destinationCoordinate = rightOriginCoordinate
         }
+        carPosition = position
+        
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: { [weak self] in
+            self?.carImage.frame.origin.x = destinationCoordinate
+        }
+        )
+        
     }
     
     func movePyramidTo(_ position: ElementPosition){
@@ -225,6 +231,22 @@ class RaceViewController: UIViewController {
             barrierImage.frame.origin.x = centerOriginCoordinate
         case .right:
             barrierImage.frame.origin.x = rightOriginCoordinate
+        }
+    }
+    
+    func animateObstacles() {
+        
+        let pyramidS = screenHeight + pyramidTopSpacing + pyramidBottomSpacing
+        let barrierS = screenHeight + barrierTopSpacing + barrierBottomSpacing
+        
+        let pyramidT = Double(pyramidS) / obstaclesSpeed
+        let barrierT = Double(barrierS) / obstaclesSpeed
+        
+        UIView.animate(withDuration: pyramidT, delay: 0, options: [.curveLinear, .repeat]){ [weak self] in
+            self?.pyramidImage.frame.origin.y = (self?.screenHeight ?? 1000) + (self?.pyramidBottomSpacing ?? 0)
+        }
+        UIView.animate(withDuration: barrierT, delay: 0, options: [.curveLinear, .repeat]){[weak self] in
+            self?.barrierImage.frame.origin.y = (self?.screenHeight ?? 1000) + (self?.barrierBottomSpacing ?? 0)
         }
     }
 }
