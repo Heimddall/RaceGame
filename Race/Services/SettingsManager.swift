@@ -17,6 +17,9 @@ class SettingsManager {
         Setting(settingName: "Music", type: .switchSetting, settingValue: true),
         Setting(settingName: "Sound", type: .switchSetting, settingValue: true),
         Setting(settingName: "Obstacles", type: .openSetting, settingValue: "Cars"),
-        Setting(settingName: "Car Color", type: .openSetting, settingValue: "Red")
+        Setting(settingName: "Car Color", type: .openSetting, settingValue: "Red"),
+        Setting(settingName: "User Name",
+                type: .nameSetting,
+                settingValue: "")
     ]
 }

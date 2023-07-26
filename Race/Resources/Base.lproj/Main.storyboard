@@ -160,6 +160,16 @@
                                     <segue destination="quj-T5-bK9" kind="show" id="Ayj-gY-MZd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, player!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r90-DJ-ciC">
+                                <rect key="frame" x="16" y="153" width="361" height="40"/>
+                                <color key="backgroundColor" red="0.4873723077466125" green="0.64653240973716652" blue="0.74903815984725952" alpha="0.21520591887417218" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ba4-N6-o5g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Exw-fE-HoN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -168,7 +178,10 @@
                             <constraint firstItem="GFP-Db-1Ka" firstAttribute="centerX" secondItem="CJh-mt-X5J" secondAttribute="centerX" id="2px-af-lR2"/>
                             <constraint firstItem="7Lp-mx-wap" firstAttribute="centerX" secondItem="CJh-mt-X5J" secondAttribute="centerX" id="T37-Yd-0Ab"/>
                             <constraint firstItem="Exw-fE-HoN" firstAttribute="bottom" secondItem="7Lp-mx-wap" secondAttribute="bottom" constant="45" id="Udz-m4-fxg"/>
+                            <constraint firstItem="r90-DJ-ciC" firstAttribute="leading" secondItem="Exw-fE-HoN" secondAttribute="leading" constant="16" id="XY0-EC-dDq"/>
+                            <constraint firstItem="Exw-fE-HoN" firstAttribute="trailing" secondItem="r90-DJ-ciC" secondAttribute="trailing" constant="16" id="dr7-HD-g3p"/>
                             <constraint firstItem="7Lp-mx-wap" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Exw-fE-HoN" secondAttribute="leading" id="gFE-XV-voz"/>
+                            <constraint firstItem="r90-DJ-ciC" firstAttribute="top" secondItem="Exw-fE-HoN" secondAttribute="top" constant="50" id="jte-k8-BqP"/>
                             <constraint firstItem="GFP-Db-1Ka" firstAttribute="centerY" secondItem="CJh-mt-X5J" secondAttribute="centerY" multiplier="8/10" id="rNm-zq-wu6"/>
                             <constraint firstItem="Exw-fE-HoN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Lp-mx-wap" secondAttribute="trailing" id="sUz-fB-iOW"/>
                         </constraints>
@@ -201,6 +214,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="greetingLabel" destination="r90-DJ-ciC" id="otc-xd-fNd"/>
                         <outlet property="startButton" destination="GFP-Db-1Ka" id="25o-F6-Vul"/>
                     </connections>
                 </viewController>

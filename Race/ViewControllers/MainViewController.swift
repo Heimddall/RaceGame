@@ -11,6 +11,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet weak var greetingLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,8 +42,30 @@ class MainViewController: UIViewController {
         container.layer.shadowOpacity = 0.5
         container.layer.shadowRadius = 20
         container.clipsToBounds = false
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(updateUserName(_:)),
+            name: NSNotification.Name("updateUserName"),
+            object: nil
+    )
+        
     }
     
+            deinit {
+                NotificationCenter.default.removeObserver(self)
+            }
+            
+            @objc
+            func updateUserName(_ notification: Notification) {
+                var username = "User"
+                if let newName = notification.userInfo?["username"] as? String {
+                    username = newName
+                }
+                
+                greetingLabel.text = "Hello, \(username)!"
+            }
+            
     @IBAction func startGame(_ sender: Any) {
         let destination = RaceViewController()
         navigationController?.pushViewController(destination, animated: true)
