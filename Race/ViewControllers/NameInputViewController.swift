@@ -21,13 +21,19 @@ class NameInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        registerKeyboardNotifications()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func setupUI() {
         view.backgroundColor = .systemGray2
 
-        textField.placeholder = "Enter name"
+        textField.placeholder = "Enter Name"
         textField.borderStyle = .roundedRect
+        textField.keyboardType = .default
         textField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textField)
 
@@ -52,6 +58,19 @@ class NameInputViewController: UIViewController {
             saveButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             saveButton.leadingAnchor.constraint(equalTo: textField.centerXAnchor, constant: 10)
         ])
+    }
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(_ notification: Foundation.Notification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let offset = UIScreen.main.bounds.height - (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size.height
+      
     }
 
     @objc private func cancelInput() {
