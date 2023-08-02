@@ -23,18 +23,10 @@ class SettingsViewController: UIViewController {
     private func setupBackgroundSetting() {
         let vcGradientLayer = CAGradientLayer()
         vcGradientLayer.frame = view.bounds
-        vcGradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.clear.cgColor]
-        vcGradientLayer.locations = [0.0, 1.0]
+        vcGradientLayer.colors = [UIColor.white.cgColor, UIColor.lightGray.cgColor]
+        vcGradientLayer.locations = [0.1, 3.0]
         
         view.layer.insertSublayer(vcGradientLayer, at: 0)
-        
-        let tableGradientLayer = CAGradientLayer()
-        tableGradientLayer.frame = tableView.bounds
-        tableGradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.clear.cgColor]
-        tableGradientLayer.locations = [0.0, 1.0]
-        
-        tableView.backgroundView = UIView(frame: tableView.bounds)
-        tableView.backgroundView?.layer.insertSublayer(tableGradientLayer, at: 0)
     }
     
     private func setupTable() {
@@ -115,61 +107,56 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
             cell.switcher.isOn.toggle()
             cell.switchChanged(self)
         case .nameSetting:
-            //                var placeholder = settings[index].settingName
-            //                if let value = settings[index].settingValue as? String,
-            //                   value.count > 0 {
-            //                    placeholder = value
-            //                }
-            //                presentAlert(
-            //                    title: "Hello",
-            //                    message: "Input \(settings[index].settingName)",
-            //                    placeholder: placeholder
-            //                ) { [weak self] input in
-            //                    self?.settings[index].settingValue = input
-            //                }
-            
-            let nameInputVC = NameInputViewController()
-            nameInputVC.delegate = self
-            nameInputVC.modalPresentationStyle = .formSheet
-            present(nameInputVC, animated: true, completion: nil)
+            var placeholder = settings[index].settingName
+            if let value = settings[index].settingValue as? String,
+               value.count > 0 {
+                placeholder = value
+            }
+            presentAlert(
+                title: "Hello",
+                message: "Input \(settings[index].settingName)",
+                placeholder: placeholder
+            ) { [weak self] input in
+                self?.settings[index].settingValue = input
+            }
             
         case .openSetting:
             self.present(UIViewController(), animated: true)
         }
     }
     
-    //        private func presentAlert(
-    //            title: String,
-    //            message: String,
-    //            placeholder: String = "",
-    //            handler: ((String) -> ())? = nil
-    //        ) {
-    //            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    //
-    //            alert.addTextField { textfield in
-    //                textfield.placeholder = placeholder
-    //            }
-    //
-    //            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    //            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-    //                guard let text = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-    //                      text.count > 0 else { return }
-    //
-    //                let filteredText = text // "text   text"
-    //                    .components(separatedBy: CharacterSet.whitespacesAndNewlines) // ["text", "", "", "text"]
-    //                    .filter { string in
-    //                        string.count > 0
-    //                    } // ["text", "text"]
-    //                    .joined(separator: " ") // "text text"
-    //
-    //                handler?(filteredText)
-    //            }
-    //
-    //            alert.addAction(cancelAction)
-    //            alert.addAction(okAction)
-    //
-    //            present(alert, animated: true)
-    //        }
+    private func presentAlert(
+        title: String,
+        message: String,
+        placeholder: String = "",
+        handler: ((String) -> ())? = nil
+    ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addTextField { textfield in
+            textfield.placeholder = placeholder
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            guard let text = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  text.count > 0 else { return }
+            
+            let filteredText = text // "text   text"
+                .components(separatedBy: CharacterSet.whitespacesAndNewlines) // ["text", "", "", "text"]
+                .filter { string in
+                    string.count > 0
+                } // ["text", "text"]
+                .joined(separator: " ") // "text text"
+            
+            handler?(filteredText)
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 
@@ -181,11 +168,4 @@ extension SettingsViewController: SwitchSettingDelegate{
     
 }
 
-extension SettingsViewController: NameInputDelegate {
-    func nameInputDidFinish(_ name: String) {
-        if let index = settings.firstIndex(where: { $0.settingName == "User Name" }) {
-            settings[index].settingValue = name
-            tableView.reloadData()
-        }
-    }
-}
+

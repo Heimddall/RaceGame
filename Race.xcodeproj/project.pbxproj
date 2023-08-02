@@ -14,7 +14,6 @@
 		DA1774BF2A6558D90032EDBB /* MenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1774BE2A6558D90032EDBB /* MenuBarViewController.swift */; };
 		DA1774C22A6DCE6C0032EDBB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA1774C12A6DCE6C0032EDBB /* Lottie */; };
 		DA1774C62A6DCFD70032EDBB /* animation_lkfxb0f9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1774C52A6DCFD70032EDBB /* animation_lkfxb0f9.json */; };
-		DA1774CE2A711BC90032EDBB /* NameInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1774CD2A711BC90032EDBB /* NameInputViewController.swift */; };
 		DA1D20BB2A5A0FC200B579A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */; };
 		DA1D20BD2A5A0FC200B579A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */; };
 		DA1D20BF2A5A0FC200B579A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20BE2A5A0FC200B579A1 /* SettingsViewController.swift */; };
@@ -41,7 +40,6 @@
 		DA1774BB2A64275A0032EDBB /* RaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceViewController.xib; sourceTree = "<group>"; };
 		DA1774BE2A6558D90032EDBB /* MenuBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarViewController.swift; sourceTree = "<group>"; };
 		DA1774C52A6DCFD70032EDBB /* animation_lkfxb0f9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lkfxb0f9.json; sourceTree = "<group>"; };
-		DA1774CD2A711BC90032EDBB /* NameInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputViewController.swift; sourceTree = "<group>"; };
 		DA1D20B72A5A0FC200B579A1 /* Race.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Race.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				DA1D20BE2A5A0FC200B579A1 /* SettingsViewController.swift */,
-				DA1774CD2A711BC90032EDBB /* NameInputViewController.swift */,
 				DA1774B62A62B7600032EDBB /* MainViewController.swift */,
 				DA1774BE2A6558D90032EDBB /* MenuBarViewController.swift */,
 				DA1D20E32A5B666E00B579A1 /* StatisticsTableViewController.swift */,
@@ -260,7 +257,6 @@
 				DA1774BC2A64275A0032EDBB /* RaceViewController.swift in Sources */,
 				DA1774B52A629E4C0032EDBB /* StatsModel.swift in Sources */,
 				DA1774BF2A6558D90032EDBB /* MenuBarViewController.swift in Sources */,
-				DA1774CE2A711BC90032EDBB /* NameInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

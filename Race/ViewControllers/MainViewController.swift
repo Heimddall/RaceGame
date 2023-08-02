@@ -15,7 +15,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackground()
+        designButton()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(updateUserName(_:)),
+            name: NSNotification.Name("updateUserName"),
+            object: nil
+        )
+        
+    }
+    
+    func setupBackground() {
         let backgroundImage = UIImage(named: "race")
         let backgroundImageView = UIImageView(image: backgroundImage)
         backgroundImageView.frame = self.view.bounds
@@ -29,7 +41,9 @@ class MainViewController: UIViewController {
         blurEffectView.alpha = 0.4
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundImageView.addSubview(blurEffectView)
-        
+    }
+    
+    func designButton() {
         startButton.layer.cornerRadius = startButton.frame.size.width / 2
         startButton.clipsToBounds = true
         
@@ -42,33 +56,23 @@ class MainViewController: UIViewController {
         container.layer.shadowOpacity = 0.5
         container.layer.shadowRadius = 20
         container.clipsToBounds = false
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(updateUserName(_:)),
-            name: NSNotification.Name("updateUserName"),
-            object: nil
-    )
-        
     }
     
-            deinit {
-                NotificationCenter.default.removeObserver(self)
-            }
-            
-            @objc
-            func updateUserName(_ notification: Notification) {
-                var username = "User"
-                if let newName = notification.userInfo?["username"] as? String {
-                    username = newName
-                }
-                
-                greetingLabel.text = "Hello, \(username)!"
-            }
-            
+    deinit { NotificationCenter.default.removeObserver(self) }
+    
+    @objc
+    func updateUserName(_ notification: Notification) {
+        var username = "User"
+        if let newName = notification.userInfo?["username"] as? String {
+            username = newName
+        }
+        
+        greetingLabel.text = "Hello, \(username)!"
+    }
+    
     @IBAction func startGame(_ sender: Any) {
         let destination = RaceViewController()
         navigationController?.pushViewController(destination, animated: true)
     }
-
+    
 }
