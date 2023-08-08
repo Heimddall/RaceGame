@@ -31,6 +31,7 @@
 		DA1D20E82A5B77E700B579A1 /* WinnersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1D20E62A5B77E700B579A1 /* WinnersTableViewCell.xib */; };
 		DA1D20EB2A5B784A00B579A1 /* NotWinnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20E92A5B784A00B579A1 /* NotWinnersTableViewCell.swift */; };
 		DA1D20EC2A5B784A00B579A1 /* NotWinnersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1D20EA2A5B784A00B579A1 /* NotWinnersTableViewCell.xib */; };
+		DAFA1CF02A82A137008A6255 /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA1CEF2A82A137008A6255 /* UserDefaultsPropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		DA1D20E62A5B77E700B579A1 /* WinnersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinnersTableViewCell.xib; sourceTree = "<group>"; };
 		DA1D20E92A5B784A00B579A1 /* NotWinnersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotWinnersTableViewCell.swift; sourceTree = "<group>"; };
 		DA1D20EA2A5B784A00B579A1 /* NotWinnersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotWinnersTableViewCell.xib; sourceTree = "<group>"; };
+		DAFA1CEF2A82A137008A6255 /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1D20E12A5B490B00B579A1 /* SettingsManager.swift */,
+				DAFA1CEF2A82A137008A6255 /* UserDefaultsPropertyWrapper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				DA1D20E72A5B77E700B579A1 /* WinnersTableViewCell.swift in Sources */,
 				DA1D20D92A5ACD7800B579A1 /* OpenSettingTableViewCell.swift in Sources */,
 				DA1D20DD2A5ACD8800B579A1 /* SwitchTableViewCell.swift in Sources */,
+				DAFA1CF02A82A137008A6255 /* UserDefaultsPropertyWrapper.swift in Sources */,
 				DA1D20BD2A5A0FC200B579A1 /* SceneDelegate.swift in Sources */,
 				DA1774BC2A64275A0032EDBB /* RaceViewController.swift in Sources */,
 				DA1774B52A629E4C0032EDBB /* StatsModel.swift in Sources */,

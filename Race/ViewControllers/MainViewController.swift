@@ -18,14 +18,14 @@ class MainViewController: UIViewController {
         setupBackground()
         designButton()
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(updateUserName(_:)),
-            name: NSNotification.Name("updateUserName"),
-            object: nil
-        )
+        setObservers()
         
+        greetingLabel.text = "Hello, \(SettingsManager.shared.userName)!"
     }
+    deinit {
+        removeObservers()
+    }
+    
     
     func setupBackground() {
         let backgroundImage = UIImage(named: "race")
@@ -58,7 +58,16 @@ class MainViewController: UIViewController {
         container.clipsToBounds = false
     }
     
-    deinit { NotificationCenter.default.removeObserver(self) }
+    private func setObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(updateUserName(_:)),
+            name: NSNotification.Name("updateUserName"),
+            object: nil
+        )
+    }
+    private func removeObservers() { NotificationCenter.default.removeObserver(self)
+    }
     
     @objc
     func updateUserName(_ notification: Notification) {
