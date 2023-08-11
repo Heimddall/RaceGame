@@ -32,6 +32,10 @@
 		DA1D20EB2A5B784A00B579A1 /* NotWinnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D20E92A5B784A00B579A1 /* NotWinnersTableViewCell.swift */; };
 		DA1D20EC2A5B784A00B579A1 /* NotWinnersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1D20EA2A5B784A00B579A1 /* NotWinnersTableViewCell.xib */; };
 		DAFA1CF02A82A137008A6255 /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA1CEF2A82A137008A6255 /* UserDefaultsPropertyWrapper.swift */; };
+		DAFA1CF72A863BE3008A6255 /* BasaltRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFA1CF62A863BE3008A6255 /* BasaltRegular.ttf */; };
+		DAFA1CF92A863FEB008A6255 /* orange juice 2.0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFA1CF82A863FEA008A6255 /* orange juice 2.0.ttf */; };
+		DAFA1CFB2A864252008A6255 /* Comic_CAT.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAFA1CFA2A864252008A6255 /* Comic_CAT.otf */; };
+		DAFA1CFD2A8643CD008A6255 /* Nice Honey.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAFA1CFC2A8643CC008A6255 /* Nice Honey.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		DA1D20E92A5B784A00B579A1 /* NotWinnersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotWinnersTableViewCell.swift; sourceTree = "<group>"; };
 		DA1D20EA2A5B784A00B579A1 /* NotWinnersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotWinnersTableViewCell.xib; sourceTree = "<group>"; };
 		DAFA1CEF2A82A137008A6255 /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
+		DAFA1CF62A863BE3008A6255 /* BasaltRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BasaltRegular.ttf; sourceTree = "<group>"; };
+		DAFA1CF82A863FEA008A6255 /* orange juice 2.0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "orange juice 2.0.ttf"; sourceTree = "<group>"; };
+		DAFA1CFA2A864252008A6255 /* Comic_CAT.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comic_CAT.otf; sourceTree = "<group>"; };
+		DAFA1CFC2A8643CC008A6255 /* Nice Honey.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nice Honey.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 		DA1774CB2A705DC90032EDBB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DAFA1CF12A8626C5008A6255 /* Fonts */,
 				DA1D20C02A5A0FC200B579A1 /* Main.storyboard */,
 				DA1D20C32A5A0FC400B579A1 /* Assets.xcassets */,
 				DA1D20C52A5A0FC400B579A1 /* LaunchScreen.storyboard */,
@@ -136,6 +145,7 @@
 		DA1D20B92A5A0FC200B579A1 /* Race */ = {
 			isa = PBXGroup;
 			children = (
+				DA1D20C82A5A0FC400B579A1 /* Info.plist */,
 				DA1D20BA2A5A0FC200B579A1 /* AppDelegate.swift */,
 				DA1D20BC2A5A0FC200B579A1 /* SceneDelegate.swift */,
 				DA1774C72A705D0A0032EDBB /* ViewControllers */,
@@ -143,7 +153,6 @@
 				DA1774C82A705D650032EDBB /* Services */,
 				DA1D20D22A5AC13600B579A1 /* Cells */,
 				DA1774CB2A705DC90032EDBB /* Resources */,
-				DA1D20C82A5A0FC400B579A1 /* Info.plist */,
 			);
 			path = Race;
 			sourceTree = "<group>";
@@ -161,6 +170,17 @@
 				DA1D20D82A5ACD7800B579A1 /* OpenSettingTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DAFA1CF12A8626C5008A6255 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DAFA1CFA2A864252008A6255 /* Comic_CAT.otf */,
+				DAFA1CF82A863FEA008A6255 /* orange juice 2.0.ttf */,
+				DAFA1CF62A863BE3008A6255 /* BasaltRegular.ttf */,
+				DAFA1CFC2A8643CC008A6255 /* Nice Honey.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,12 +249,16 @@
 			files = (
 				DA1D20DE2A5ACD8800B579A1 /* SwitchTableViewCell.xib in Resources */,
 				DA1774C62A6DCFD70032EDBB /* animation_lkfxb0f9.json in Resources */,
+				DAFA1CFB2A864252008A6255 /* Comic_CAT.otf in Resources */,
+				DAFA1CFD2A8643CD008A6255 /* Nice Honey.otf in Resources */,
 				DA1774BD2A64275A0032EDBB /* RaceViewController.xib in Resources */,
 				DA1D20C72A5A0FC400B579A1 /* LaunchScreen.storyboard in Resources */,
 				DA1D20E82A5B77E700B579A1 /* WinnersTableViewCell.xib in Resources */,
 				DA1D20C42A5A0FC400B579A1 /* Assets.xcassets in Resources */,
+				DAFA1CF72A863BE3008A6255 /* BasaltRegular.ttf in Resources */,
 				DA1D20EC2A5B784A00B579A1 /* NotWinnersTableViewCell.xib in Resources */,
 				DA1D20DA2A5ACD7800B579A1 /* OpenSettingTableViewCell.xib in Resources */,
+				DAFA1CF92A863FEB008A6255 /* orange juice 2.0.ttf in Resources */,
 				DA1D20C22A5A0FC200B579A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

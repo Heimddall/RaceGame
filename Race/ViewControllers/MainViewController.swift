@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
         removeObservers()
     }
     
-    
     func setupBackground() {
         let backgroundImage = UIImage(named: "race")
         let backgroundImageView = UIImageView(image: backgroundImage)
@@ -56,6 +55,14 @@ class MainViewController: UIViewController {
         container.layer.shadowOpacity = 0.5
         container.layer.shadowRadius = 20
         container.clipsToBounds = false
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "Nice Honey", size: 60.0)!,
+            .foregroundColor: UIColor.white
+        ]
+        let attributedText = NSAttributedString(string: "START", attributes: attributes)
+
+        startButton.setAttributedTitle(attributedText, for: .normal)
     }
     
     private func setObservers() {

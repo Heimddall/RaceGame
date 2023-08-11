@@ -7,6 +7,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comic_CAT.otf">
+            <string>ComicCAT</string>
+        </array>
+        <array key="Nice Honey.otf">
+            <string>Nice-Honey</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Menu Bar View Controller-->
         <scene sceneID="smc-QQ-TeO">
@@ -23,10 +31,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJZ-hm-WYX">
+                                <rect key="frame" x="137.33333333333334" y="16" width="118.33333333333334" height="529.33333333333337"/>
+                                <fontDescription key="fontDescription" name="Nice-Honey" family="Nice Honey" pointSize="67"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XfZ-ON-jQh">
+                                <rect key="frame" x="16" y="698" width="361" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rjp-5y-NDG"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Twk-Pb-MoY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Twk-Pb-MoY" firstAttribute="trailing" secondItem="XfZ-ON-jQh" secondAttribute="trailing" constant="16" id="9Py-sY-PeL"/>
+                            <constraint firstItem="uJZ-hm-WYX" firstAttribute="centerX" secondItem="Y8F-g1-MUQ" secondAttribute="centerX" id="9kc-Au-4oi"/>
+                            <constraint firstItem="uJZ-hm-WYX" firstAttribute="centerY" secondItem="Y8F-g1-MUQ" secondAttribute="centerY" multiplier="2/3" id="ELL-JI-Agk"/>
+                            <constraint firstItem="XfZ-ON-jQh" firstAttribute="leading" secondItem="Twk-Pb-MoY" secondAttribute="leading" constant="16" id="aJv-GP-msK"/>
+                            <constraint firstItem="uJZ-hm-WYX" firstAttribute="top" secondItem="Twk-Pb-MoY" secondAttribute="top" constant="16" id="sAr-0m-94n"/>
+                            <constraint firstItem="Twk-Pb-MoY" firstAttribute="bottom" secondItem="XfZ-ON-jQh" secondAttribute="bottom" constant="16" id="tsj-6G-Ehb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelName" destination="uJZ-hm-WYX" id="nmJ-tU-4Vy"/>
+                        <outlet property="textViewName" destination="XfZ-ON-jQh" id="IC9-Qa-dzl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMB-mI-b0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,16 +167,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFP-Db-1Ka">
-                                <rect key="frame" x="106.66666666666669" y="250.66666666666663" width="180" height="180"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFP-Db-1Ka">
+                                <rect key="frame" x="106.66666666666669" y="336" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="K6c-X8-8ON"/>
                                     <constraint firstAttribute="width" secondItem="GFP-Db-1Ka" secondAttribute="height" multiplier="180:180" id="Nn0-zO-e0N"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <buttonConfiguration key="configuration" style="filled" title="START!" titleAlignment="automatic">
-                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="40"/>
+                                    <fontDescription key="titleFontDescription" name="Nice-Honey" family="Nice Honey" pointSize="55"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
@@ -148,12 +184,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-mx-wap">
-                                <rect key="frame" x="88.666666666666671" y="726.66666666666663" width="215.66666666666663" height="46.333333333333371"/>
+                                <rect key="frame" x="71" y="730.66666666666663" width="251" height="42.333333333333371"/>
                                 <color key="backgroundColor" red="0.54722648809999996" green="0.67212022490000001" blue="0.80827487239999996" alpha="0.68323158113708615" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="List of Legendes">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
+                                    <fontDescription key="titleFontDescription" name="ComicCAT" family="Comic CAT" pointSize="27"/>
                                     <color key="baseBackgroundColor" red="0.42541844829999997" green="0.53224489350000004" blue="0.64870323129999996" alpha="0.38617549670000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -166,7 +202,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ba4-N6-o5g"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="ComicCAT" family="Comic CAT" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -182,7 +218,7 @@
                             <constraint firstItem="Exw-fE-HoN" firstAttribute="trailing" secondItem="r90-DJ-ciC" secondAttribute="trailing" constant="16" id="dr7-HD-g3p"/>
                             <constraint firstItem="7Lp-mx-wap" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Exw-fE-HoN" secondAttribute="leading" id="gFE-XV-voz"/>
                             <constraint firstItem="r90-DJ-ciC" firstAttribute="top" secondItem="Exw-fE-HoN" secondAttribute="top" constant="50" id="jte-k8-BqP"/>
-                            <constraint firstItem="GFP-Db-1Ka" firstAttribute="centerY" secondItem="CJh-mt-X5J" secondAttribute="centerY" multiplier="8/10" id="rNm-zq-wu6"/>
+                            <constraint firstItem="GFP-Db-1Ka" firstAttribute="centerY" secondItem="CJh-mt-X5J" secondAttribute="centerY" id="rNm-zq-wu6"/>
                             <constraint firstItem="Exw-fE-HoN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Lp-mx-wap" secondAttribute="trailing" id="sUz-fB-iOW"/>
                         </constraints>
                     </view>
@@ -226,6 +262,9 @@
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
